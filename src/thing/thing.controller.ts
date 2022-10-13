@@ -29,14 +29,13 @@ export class ThingController {
     return this.thingService.update(body);
   }
 
-  @Delete(':id')
-  delete(@Param() params): Promise<ThingDocument> {
-    console.log(params.id);
-    return this.thingService.delete(params.id);
-  }
-
-  @Get('deleteAll')
+  @Delete('deleteAll')
   deleteAll() {
     return this.thingService.deleteAll();
+  }
+
+  @Delete(':id')
+  delete(@Param() params): Promise<ThingDocument> {
+    return this.thingService.delete(params.id);
   }
 }

@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { FunctionsService } from './functions.service';
 
@@ -13,14 +14,14 @@ import { FunctionsService } from './functions.service';
 export class FunctionsController {
   constructor(private readonly functionsService: FunctionsService) {}
 
-  @Post()
+  @Post('/')
   create(@Body() body) {
     return this.functionsService.create(body);
   }
 
-  @Get()
-  findAll() {
-    return this.functionsService.findAll();
+  @Get('/forElement/:elementId')
+  findAllByElementId(@Param('elementId') elementId: string) {
+    return this.functionsService.findAllByElementId(elementId);
   }
 
   @Get(':id')
@@ -28,9 +29,14 @@ export class FunctionsController {
     return this.functionsService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() body) {
-    return this.functionsService.update(+id, body);
+  @Put()
+  update(@Body() body) {
+    return this.functionsService.update(body);
+  }
+
+  @Delete('/all')
+  removeAll() {
+    return this.functionsService.removeAll();
   }
 
   @Delete(':id')
@@ -39,7 +45,7 @@ export class FunctionsController {
   }
 
   @Delete()
-  removeAll(@Param('functionId') functionId: string) {
-    return this.functionsService.removeAll(functionId);
+  removeAllFromElement(@Param('elementId') elementId: string) {
+    return this.functionsService.removeAllFromElement(elementId);
   }
 }

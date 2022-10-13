@@ -1,35 +1,51 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { FunctionDocument } from 'src/schemas/function.schema';
+import { GridFunctionDocument } from 'src/schemas/function.schema';
 
 @Injectable()
 export class FunctionsService {
   constructor(
-    @InjectModel('Function') private functionModel: Model<FunctionDocument>,
+    @InjectModel('GridFunction')
+    private gridFunctionModel: Model<GridFunctionDocument>,
   ) {}
+
   create(body) {
-    const createdFunction = new this.functionModel(body);
+    const createdFunction = new this.gridFunctionModel(body);
     return createdFunction.save();
   }
 
   findAll() {
-    return this.functionModel.find().exec();
+    return this.gridFunctionModel.find().exec();
+  }
+
+  findAllByElementId(elementId: string) {
+    return this.gridFunctionModel.find({ elementId }).exec();
   }
 
   findOne(id: number) {
-    return this.functionModel.findById(id).exec();
+    return this.gridFunctionModel.findById(id).exec();
   }
 
-  update(id: number) {
-    return `This action updates a #${id} function`;
+  update(body) {
+    return this.gridFunctionModel
+      .findByIdAndUpdate({ _id: body._id }, body, { new: true })
+      .exec();
+  }
+
+  removeAll() {
+    return this.gridFunctionModel.deleteMany().exec();
   }
 
   remove(id: number) {
-    return this.functionModel.findByIdAndRemove({ _id: id }).exec();
+    return this.gridFunctionModel.findByIdAndRemove({ _id: id }).exec();
   }
 
-  removeAll(elementId: string) {
-    return this.functionModel.deleteMany({ elementId }).exec();
+  removeAllFromElement(elementId: string) {
+    return this.gridFunctionModel.deleteMany({ elementId }).exec();
+  }
+
+  dropCollection() {
+    return this.gridFunctionModel.collection.drop();
   }
 }
