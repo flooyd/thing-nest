@@ -13,7 +13,7 @@ export class ConnectionsService {
 
   //create a function to get all connections for an element
   async getAllConnectionsForElement(elementId: string) {
-    return await this.gridConnectionModel.find({ elementId: elementId });
+    return await this.gridConnectionModel.find({ elementId });
   }
 
   //create a function to get a connection by id
@@ -27,11 +27,11 @@ export class ConnectionsService {
   }
 
   //create a function to update a connection
-  async updateConnection(connectionId: string, connection: any) {
-    return await this.gridConnectionModel.findByIdAndUpdate(
-      connectionId,
+  async updateConnection(connection: any) {
+    return await this.gridConnectionModel.findByIdAndUpdate({
+      id: connection._id,
       connection,
-    );
+    });
   }
 
   //create a function to delete a connection
@@ -42,5 +42,10 @@ export class ConnectionsService {
   //create a function to delete all connections for an element
   async deleteAllConnectionsForElement(elementId: string) {
     return await this.gridConnectionModel.deleteMany({ elementId: elementId });
+  }
+
+  //create a function to delete all connections
+  async deleteAllConnections() {
+    return await this.gridConnectionModel.deleteMany({});
   }
 }

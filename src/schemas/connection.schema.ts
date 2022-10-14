@@ -14,7 +14,7 @@ export class GridConnection {
   @Prop()
   out: string;
 
-  @Prop()
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Element' })
   elementId: string;
 }
 
