@@ -15,7 +15,6 @@ export class ConnectionsController {
 
   @Get('/forElement/:elementId')
   async getAllConnectionsForElement(@Param() params: any) {
-    console.log('connections.controller.ts: getAllConnectionsForElement');
     return await this.connectionsService.getAllConnectionsForElement(
       params.elementId,
     );

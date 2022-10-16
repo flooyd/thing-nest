@@ -300,6 +300,10 @@ export class Thing {
 
   @Prop()
   type: string;
+
+  @Prop()
+  @Optional()
+  content: string;
 }
 
 export const ThingSchema = SchemaFactory.createForClass(Thing);
