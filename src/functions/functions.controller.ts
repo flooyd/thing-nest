@@ -15,7 +15,6 @@ export class FunctionsController {
 
   @Post('/')
   create(@Body() body) {
-    console.log(body);
     return this.functionsService.create(body);
   }
 

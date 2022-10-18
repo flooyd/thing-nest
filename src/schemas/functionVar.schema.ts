@@ -9,7 +9,7 @@ export class GridFunctionVar {
   @Prop()
   name: string;
 
-  @Prop()
+  @Prop({ type: MongooseSchema.Types.Mixed })
   @Optional()
   value: string | number | boolean | null | undefined | object;
 

@@ -23,12 +23,12 @@ export class FunctionVarsController {
     await this.functionVarsService.findAll();
   }
 
-  @Get(':elementId')
+  @Get('/forElement/:elementId')
   async findAllForElement(@Param('elementId') elementId: string) {
     await this.functionVarsService.findAllForElement(elementId);
   }
 
-  @Get(':functionId')
+  @Get('forFunction/:functionId')
   async findAllForFunction(@Param('functionId') functionId: string) {
     await this.functionVarsService.findOne(functionId);
   }
@@ -43,11 +43,12 @@ export class FunctionVarsController {
     await this.functionVarsService.update(id, body);
   }
 
-  @Delete(':elementId')
+  @Delete('/forElement/:elementId')
   async removeAllForElement(@Param('elementId') elementId: string) {
     await this.functionVarsService.removeAllForElement(elementId);
   }
 
+  @Delete('/forFunction/:functionId')
   async removeAllForFunction(@Param('functionId') functionId: string) {
     await this.functionVarsService.removeAllForFunction(functionId);
   }
@@ -55,5 +56,10 @@ export class FunctionVarsController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     await this.functionVarsService.remove(+id);
+  }
+
+  @Delete()
+  async removeAll() {
+    await this.functionVarsService.removeAll();
   }
 }

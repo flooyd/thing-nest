@@ -32,6 +32,7 @@ export class FunctionVarsService {
     return await this.gridFunctionVarModel.findByIdAndUpdate(
       functionVarId,
       body,
+      { new: true },
     );
   }
   async remove(functionVarId: number) {
@@ -39,5 +40,8 @@ export class FunctionVarsService {
   }
   async create(body: any) {
     return await this.gridFunctionVarModel.create(body);
+  }
+  async removeAll() {
+    return await this.gridFunctionVarModel.deleteMany({});
   }
 }
