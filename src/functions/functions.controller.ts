@@ -3,7 +3,6 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Put,
@@ -16,7 +15,13 @@ export class FunctionsController {
 
   @Post('/')
   create(@Body() body) {
+    console.log(body);
     return this.functionsService.create(body);
+  }
+
+  @Get('/')
+  findAll() {
+    return this.functionsService.findAll();
   }
 
   @Get('/forElement/:elementId')

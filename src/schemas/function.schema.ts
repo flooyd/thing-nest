@@ -31,18 +31,19 @@ export class GridFunction {
 }
 
 const GridFunctionSchema = SchemaFactory.createForClass(GridFunction);
-//allow only 1 function with name of onMount OR afterUpdate OR beforeUpdate OR beforeDestroy OR afterDestroy per element using partial filter expression.
+//allow only 1 function with name of onMount OR afterUpdate OR beforeUpdate OR beforeDestroy OR afterDestroy OR onClick per element using partial filter expression.
 GridFunctionSchema.index(
   { elementId: 1, name: 1 },
   {
     unique: true,
     partialFilterExpression: {
       $or: [
-        { name: 'mount' },
+        { name: 'onMount' },
         { name: 'afterUpdate' },
         { name: 'beforeUpdate' },
         { name: 'beforeDestroy' },
         { name: 'afterDestroy' },
+        { name: 'onClick' },
       ],
     },
   },
