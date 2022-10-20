@@ -37,8 +37,8 @@ export class FunctionsService {
     return this.gridFunctionModel.deleteMany().exec();
   }
 
-  remove(id: number) {
-    return this.gridFunctionModel.findByIdAndRemove({ _id: id }).exec();
+  async remove(id: string) {
+    return await this.gridFunctionModel.findByIdAndRemove({ _id: id }).exec();
   }
 
   removeAllFromElement(elementId: string) {

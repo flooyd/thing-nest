@@ -44,6 +44,13 @@ export class ConnectionsService {
     return await this.gridConnectionModel.deleteMany({ elementId: elementId });
   }
 
+  async deleteAllConnectionsForFunction(functionId: string) {
+    //delete if "in" === functionID; delete if "out" === functionId
+    return await this.gridConnectionModel.deleteMany({
+      $or: [{ in: functionId }, { out: functionId }],
+    });
+  }
+
   //create a function to delete all connections
   async deleteAllConnections() {
     return await this.gridConnectionModel.deleteMany({});

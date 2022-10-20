@@ -44,8 +44,8 @@ export class FunctionsController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.functionsService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.functionsService.remove(id);
   }
 
   @Delete()

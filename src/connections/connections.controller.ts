@@ -40,10 +40,18 @@ export class ConnectionsController {
     return await this.connectionsService.deleteConnection(connectionId);
   }
 
-  @Delete('/deleteAll/:elementId')
+  @Delete('/deleteAll/forElement/:elementId')
   async deleteAllConnectionsForElement(@Param() elementId: string) {
     return await this.connectionsService.deleteAllConnectionsForElement(
       elementId,
+    );
+  }
+
+  @Delete('/deleteAll/forFunction/:functionId')
+  async deleteAllConnectionsForFunction(@Param() params: any) {
+    console.log(params.functionId);
+    return await this.connectionsService.deleteAllConnectionsForFunction(
+      params.functionId,
     );
   }
 
