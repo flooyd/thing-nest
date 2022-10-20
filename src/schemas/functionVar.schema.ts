@@ -17,7 +17,7 @@ export class GridFunctionVar {
   type: string;
 
   @Prop()
-  functionId: MongooseSchema.Types.ObjectId;
+  elementId: MongooseSchema.Types.ObjectId;
 }
 
 const GridFunctionVarSchema = SchemaFactory.createForClass(GridFunctionVar);

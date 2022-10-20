@@ -28,11 +28,6 @@ export class FunctionVarsController {
     await this.functionVarsService.findAllForElement(elementId);
   }
 
-  @Get('forFunction/:functionId')
-  async findAllForFunction(@Param('functionId') functionId: string) {
-    await this.functionVarsService.findOne(functionId);
-  }
-
   @Get(':id')
   async findOne(@Param('id') id: string) {
     await this.functionVarsService.findOne(id);
@@ -46,11 +41,6 @@ export class FunctionVarsController {
   @Delete('/forElement/:elementId')
   async removeAllForElement(@Param('elementId') elementId: string) {
     await this.functionVarsService.removeAllForElement(elementId);
-  }
-
-  @Delete('/forFunction/:functionId')
-  async removeAllForFunction(@Param('functionId') functionId: string) {
-    await this.functionVarsService.removeAllForFunction(functionId);
   }
 
   @Delete(':id')
