@@ -15,7 +15,8 @@ export class FunctionVarsController {
 
   @Post()
   async create(@Body() body) {
-    await this.functionVarsService.create(body);
+    console.log('CREATE FUNCTION VAR', body);
+    return await this.functionVarsService.create(body.variable);
   }
 
   @Get()
@@ -25,7 +26,7 @@ export class FunctionVarsController {
 
   @Get('/forElement/:elementId')
   async findAllForElement(@Param('elementId') elementId: string) {
-    await this.functionVarsService.findAllForElement(elementId);
+    return await this.functionVarsService.findAllForElement(elementId);
   }
 
   @Get(':id')
@@ -35,7 +36,8 @@ export class FunctionVarsController {
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() body) {
-    await this.functionVarsService.update(id, body);
+    console.log('PATCH', body);
+    await this.functionVarsService.update(id, body.variable);
   }
 
   @Delete('/forElement/:elementId')

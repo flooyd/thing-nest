@@ -9,6 +9,9 @@ export class GridFunctionVar {
   @Prop()
   name: string;
 
+  @Prop()
+  dateAdded: Date;
+
   @Prop({ type: MongooseSchema.Types.Mixed })
   @Optional()
   value: string | number | boolean | null | undefined | object;
