@@ -1,3 +1,4 @@
+import { Optional } from '@nestjs/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
 
@@ -7,6 +8,10 @@ export type GridFunctionDocument = GridFunction & Document;
 export class GridFunction {
   @Prop()
   name: string;
+
+  @Prop({ default: false })
+  @Optional()
+  isVariable: boolean;
 
   @Prop()
   elementId: string;
@@ -18,16 +23,36 @@ export class GridFunction {
   rectY: number;
 
   @Prop()
+  @Optional()
   inArrowX: number;
 
   @Prop()
+  @Optional()
   inArrowYLocations: number[];
 
   @Prop()
+  @Optional()
   outArrowX: number;
 
   @Prop()
+  @Optional()
   outArrowYLocations: number[];
+
+  @Prop()
+  @Optional()
+  variableInCircleX: number;
+
+  @Prop()
+  @Optional()
+  variableInCircleYLocations: number[];
+
+  @Prop()
+  @Optional()
+  variableOutCircleX: number;
+
+  @Prop()
+  @Optional()
+  variableOutCircleYLocations: number[];
 }
 
 const GridFunctionSchema = SchemaFactory.createForClass(GridFunction);

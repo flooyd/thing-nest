@@ -13,17 +13,21 @@ export class GridFunctionVar {
   @Optional()
   value: string | number | boolean | null | undefined | object;
 
+  @Prop({ default: true })
+  @Optional()
+  readonly: boolean;
+
   @Prop()
-  type: string;
+  type: string; // 'string' | 'number' | 'boolean' | 'object' | 'null' | 'undefined' | 'createStore' | 'updateStore' | 'subscribe' | 'unsubscribe';
 
   @Prop()
   elementId: MongooseSchema.Types.ObjectId;
 }
 
 const GridFunctionVarSchema = SchemaFactory.createForClass(GridFunctionVar);
-//make sure that there is only 1 var with the same name per function
+//make sure that there is only 1 var with the same name per element
 GridFunctionVarSchema.index(
-  { functionId: 1, name: 1 },
+  { elementId: 1, name: 1 },
   {
     unique: true,
   },
