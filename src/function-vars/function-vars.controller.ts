@@ -37,7 +37,7 @@ export class FunctionVarsController {
   @Patch(':id')
   async update(@Param('id') id: string, @Body() body) {
     console.log('PATCH', body);
-    await this.functionVarsService.update(id, body.variable);
+    return await this.functionVarsService.update(id, body.variable);
   }
 
   @Delete('/forElement/:elementId')

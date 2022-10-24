@@ -14,6 +14,10 @@ export class GridFunction {
   isVariable: boolean;
 
   @Prop()
+  @Optional()
+  variableId: MongooseSchema.Types.ObjectId;
+
+  @Prop()
   elementId: string;
 
   @Prop()
@@ -37,14 +41,6 @@ export class GridFunction {
   @Prop()
   @Optional()
   outArrowYLocations: number[];
-
-  @Prop()
-  @Optional()
-  variableInCircleX: number;
-
-  @Prop()
-  @Optional()
-  variableInCircleYLocations: number[];
 
   @Prop()
   @Optional()
