@@ -36,8 +36,9 @@ export class ConnectionsController {
   }
 
   @Delete('/:connectionId')
-  async deleteConnection(@Param() connectionId: string) {
-    return await this.connectionsService.deleteConnection(connectionId);
+  async deleteConnection(@Param() params: any) {
+    console.log(params);
+    return await this.connectionsService.deleteConnection(params.connectionId);
   }
 
   @Delete('/deleteAll/forElement/:elementId')

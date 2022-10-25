@@ -32,23 +32,7 @@ export class GridFunction {
 
   @Prop()
   @Optional()
-  inArrowYLocations: number[];
-
-  @Prop()
-  @Optional()
   outArrowX: number;
-
-  @Prop()
-  @Optional()
-  outArrowYLocations: number[];
-
-  @Prop()
-  @Optional()
-  variableOutCircleX: number;
-
-  @Prop()
-  @Optional()
-  variableOutCircleYLocations: number[];
 }
 
 const GridFunctionSchema = SchemaFactory.createForClass(GridFunction);
