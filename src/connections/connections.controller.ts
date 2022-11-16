@@ -37,7 +37,6 @@ export class ConnectionsController {
 
   @Delete('/:connectionId')
   async deleteConnection(@Param() params: any) {
-    console.log(params);
     return await this.connectionsService.deleteConnection(params.connectionId);
   }
 
@@ -50,7 +49,6 @@ export class ConnectionsController {
 
   @Delete('/deleteAll/forFunction/:functionId')
   async deleteAllConnectionsForFunction(@Param() params: any) {
-    console.log(params.functionId);
     return await this.connectionsService.deleteAllConnectionsForFunction(
       params.functionId,
     );

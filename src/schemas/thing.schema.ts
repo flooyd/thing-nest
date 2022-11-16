@@ -1,6 +1,6 @@
 import { Optional } from '@nestjs/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Schema as MongooseSchema } from 'mongoose';
 
 export type ThingDocument = Thing & Document;
 
@@ -9,6 +9,10 @@ export class Thing {
   @Prop()
   @Optional()
   name: string;
+
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Mimic' })
+  @Optional()
+  mimicId: MongooseSchema.Types.ObjectId;
 
   @Prop()
   @Optional()

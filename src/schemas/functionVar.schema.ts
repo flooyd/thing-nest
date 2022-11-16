@@ -16,6 +16,10 @@ export class GridFunctionVar {
   @Optional()
   value: string | number | boolean | null | undefined | object;
 
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Mimic' })
+  @Optional()
+  mimicId: MongooseSchema.Types.ObjectId;
+
   @Prop({ default: true })
   @Optional()
   readonly: boolean;

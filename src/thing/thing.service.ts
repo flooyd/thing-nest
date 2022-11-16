@@ -21,7 +21,7 @@ export class ThingService {
   }
 
   async update(thing: ThingDocument): Promise<ThingDocument> {
-    console.log(thing);
+    console.log(thing._id);
     return this.thingModel
       .findOneAndUpdate({ _id: thing._id }, thing, { new: true })
       .exec();

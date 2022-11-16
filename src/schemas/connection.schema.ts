@@ -15,6 +15,10 @@ export class GridConnection {
   @Prop()
   out: string;
 
+  @Prop({ default: null })
+  @Optional()
+  mimicId: MongooseSchema.Types.ObjectId;
+
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Element' })
   elementId: string;
 

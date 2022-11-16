@@ -9,6 +9,10 @@ export class GridFunction {
   @Prop()
   name: string;
 
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Mimic' })
+  @Optional()
+  mimicId: MongooseSchema.Types.ObjectId;
+
   @Prop({ default: false })
   @Optional()
   isVariable: boolean;
@@ -18,6 +22,7 @@ export class GridFunction {
   variableId: MongooseSchema.Types.ObjectId;
 
   @Prop()
+  @Optional()
   elementId: string;
 
   @Prop()

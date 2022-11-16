@@ -15,7 +15,6 @@ export class FunctionVarsController {
 
   @Post()
   async create(@Body() body) {
-    console.log('CREATE FUNCTION VAR', body);
     return await this.functionVarsService.create(body.variable);
   }
 
@@ -36,7 +35,6 @@ export class FunctionVarsController {
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() body) {
-    console.log('PATCH', body);
     return await this.functionVarsService.update(id, body.variable);
   }
 
