@@ -16,6 +16,10 @@ export class Thing {
 
   @Prop()
   @Optional()
+  componentName: string;
+
+  @Prop()
+  @Optional()
   type: string;
 
   @Prop()
