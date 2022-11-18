@@ -12,8 +12,8 @@ export class ConnectionsService {
   ) {}
 
   //create a function to get all connections for an element
-  async getAllConnectionsForElement(elementId: string) {
-    return await this.gridConnectionModel.find({ elementId });
+  async getAllConnectionsforComponent(componentName: string) {
+    return await this.gridConnectionModel.find({ componentName });
   }
 
   //create a function to get a connection by id
@@ -40,8 +40,8 @@ export class ConnectionsService {
   }
 
   //create a function to delete all connections for an element
-  async deleteAllConnectionsForElement(elementId: string) {
-    return await this.gridConnectionModel.deleteMany({ elementId: elementId });
+  async deleteAllConnectionsforComponent(componentName: string) {
+    return await this.gridConnectionModel.deleteMany({ componentName });
   }
 
   async deleteAllConnectionsForFunction(functionId: string) {

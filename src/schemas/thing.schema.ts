@@ -10,10 +10,6 @@ export class Thing {
   @Optional()
   name: string;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Mimic' })
-  @Optional()
-  mimicId: MongooseSchema.Types.ObjectId;
-
   @Prop()
   @Optional()
   componentName: string;

@@ -23,9 +23,11 @@ export class FunctionVarsController {
     await this.functionVarsService.findAll();
   }
 
-  @Get('/forElement/:elementId')
-  async findAllForElement(@Param('elementId') elementId: string) {
-    return await this.functionVarsService.findAllForElement(elementId);
+  @Get('/forComponent/:componentName')
+  async findAllForComponent(@Param() params: any) {
+    return await this.functionVarsService.findAllForComponent(
+      params.componentName,
+    );
   }
 
   @Get(':id')

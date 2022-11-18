@@ -13,10 +13,10 @@ import { ConnectionsService } from './connections.service';
 export class ConnectionsController {
   constructor(private readonly connectionsService: ConnectionsService) {}
 
-  @Get('/forElement/:elementId')
-  async getAllConnectionsForElement(@Param() params: any) {
-    return await this.connectionsService.getAllConnectionsForElement(
-      params.elementId,
+  @Get('/forComponent/:componentName')
+  async getAllConnectionsforComponent(@Param() params: any) {
+    return await this.connectionsService.getAllConnectionsforComponent(
+      params.componentName,
     );
   }
 
@@ -40,9 +40,9 @@ export class ConnectionsController {
     return await this.connectionsService.deleteConnection(params.connectionId);
   }
 
-  @Delete('/deleteAll/forElement/:elementId')
-  async deleteAllConnectionsForElement(@Param() elementId: string) {
-    return await this.connectionsService.deleteAllConnectionsForElement(
+  @Delete('/deleteAll/forComponent/:elementId')
+  async deleteAllConnectionsforComponent(@Param() elementId: string) {
+    return await this.connectionsService.deleteAllConnectionsforComponent(
       elementId,
     );
   }

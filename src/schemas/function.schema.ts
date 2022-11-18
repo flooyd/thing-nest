@@ -9,10 +9,6 @@ export class GridFunction {
   @Prop()
   name: string;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Mimic' })
-  @Optional()
-  mimicId: MongooseSchema.Types.ObjectId;
-
   @Prop({ default: false })
   @Optional()
   isVariable: boolean;
@@ -23,7 +19,7 @@ export class GridFunction {
 
   @Prop()
   @Optional()
-  elementId: string;
+  componentName: string;
 
   @Prop()
   rectX: number;
@@ -41,9 +37,9 @@ export class GridFunction {
 }
 
 const GridFunctionSchema = SchemaFactory.createForClass(GridFunction);
-//allow only 1 function with name of onMount OR afterUpdate OR beforeUpdate OR beforeDestroy OR afterDestroy OR onClick per element using partial filter expression.
+//allow only 1 function with name of onMount OR afterUpdate OR beforeUpdate OR beforeDestroy OR afterDestroy
 GridFunctionSchema.index(
-  { elementId: 1, name: 1 },
+  { componentName: 1, name: 1 },
   {
     unique: true,
     partialFilterExpression: {

@@ -15,12 +15,9 @@ export class GridConnection {
   @Prop()
   out: string;
 
-  @Prop({ default: null })
+  @Prop()
   @Optional()
-  mimicId: MongooseSchema.Types.ObjectId;
-
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Element' })
-  elementId: string;
+  componentName: string;
 
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Variable' })
   @Optional()
@@ -39,11 +36,11 @@ export class GridConnection {
   outputIndex: number;
 }
 
-//create a schema factory for the document
 const GridConnectionSchema = SchemaFactory.createForClass(GridConnection);
-//create a compuound index on all 3 properties
+
+//same as above but for component name
 GridConnectionSchema.index(
-  { in: 1, out: 1, elementId: 1, inputIndex: 1, outputIndex: 1 },
+  { in: 1, out: 1, componentName: 1, inputIndex: 1, outputIndex: 1 },
   { unique: true },
 );
 

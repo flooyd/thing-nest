@@ -19,8 +19,8 @@ export class FunctionVarsService {
     return await this.gridFunctionVarModel.find();
   }
 
-  async findAllForElement(elementId: string) {
-    return await this.gridFunctionVarModel.find({ elementId });
+  async findAllForComponent(componentName: string) {
+    return await this.gridFunctionVarModel.find({ componentName });
   }
 
   async findOne(functionId: string) {
