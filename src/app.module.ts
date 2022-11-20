@@ -7,9 +7,10 @@ import { FunctionsModule } from './functions/functions.module';
 import { ConnectionsModule } from './connections/connections.module';
 import { FunctionVarsModule } from './function-vars/function-vars.module';
 import { MimicsModule } from './mimics/mimics.module';
+import { ComponentsModule } from './components/components.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/nest'), ThingModule, FunctionsModule, ConnectionsModule, FunctionVarsModule, MimicsModule],
+  imports: [MongooseModule.forRoot('mongodb://localhost/nest'), ThingModule, FunctionsModule, ConnectionsModule, FunctionVarsModule, MimicsModule, ComponentsModule],
   controllers: [AppController],
   providers: [AppService],
 })

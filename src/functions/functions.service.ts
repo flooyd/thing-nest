@@ -19,8 +19,8 @@ export class FunctionsService {
     return this.gridFunctionModel.find().exec();
   }
 
-  findAllByElementId(elementId: string) {
-    return this.gridFunctionModel.find({ elementId }).exec();
+  findAllForComponent(componentName: string) {
+    return this.gridFunctionModel.find({ componentName });
   }
 
   findOne(id: number) {

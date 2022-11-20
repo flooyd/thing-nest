@@ -23,9 +23,9 @@ export class FunctionsController {
     return this.functionsService.findAll();
   }
 
-  @Get('/forElement/:elementId')
-  findAllByElementId(@Param('elementId') elementId: string) {
-    return this.functionsService.findAllByElementId(elementId);
+  @Get('/forComponent/:componentName')
+  findAllForComponent(@Param() params: any) {
+    return this.functionsService.findAllForComponent(params.componentName);
   }
 
   @Get(':id')
